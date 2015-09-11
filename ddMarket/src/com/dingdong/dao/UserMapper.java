@@ -3,15 +3,12 @@ package com.dingdong.dao;
 import com.dingdong.pojo.User;
 
 public interface UserMapper {
-    int deleteByPrimaryKey(Integer userId);
+	
+    boolean deleteByUserID(Integer userId);
 
-    int insert(User record);
+    boolean registe(User record);
 
-    int insertSelective(User record);
-
-    User selectByPrimaryKey(Integer userId);
-
-    int updateByPrimaryKeySelective(User record);
-
-    int updateByPrimaryKey(User record);
+    int login(String userName , String password);
+    
+    boolean update(User record);
 }

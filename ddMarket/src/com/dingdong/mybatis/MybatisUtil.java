@@ -12,7 +12,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import com.dingdong.dao.UserMapper;
 import com.dingdong.pojo.User;
 
-public class MybatisSession {
+public class MybatisUtil {
 	
 	
 	public SqlSession getSession() throws IOException {
@@ -40,8 +40,11 @@ public class MybatisSession {
 		return session;
 	}
 	
-	public static void main(String[] args) throws Exception {
-		MybatisSession ms = new MybatisSession();
+	
+	
+	
+	private static void main(String[] args) throws Exception {
+		MybatisUtil ms = new MybatisUtil();
 		SqlSession session = ms.getSession();
 		User user = new User();
 		user.setName("yinbro");
@@ -50,10 +53,6 @@ public class MybatisSession {
 		user.setCredit(5);
 		
 		UserMapper userMapper = session.getMapper(UserMapper.class);
-		int status = userMapper.insert(user);
-		System.out.println(status);
-		
-		
 		session.commit();
 		session.close();
 	}

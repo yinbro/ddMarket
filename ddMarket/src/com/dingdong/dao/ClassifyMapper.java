@@ -3,15 +3,12 @@ package com.dingdong.dao;
 import com.dingdong.pojo.Classify;
 
 public interface ClassifyMapper {
-    int deleteByPrimaryKey(Integer classifyId);
+	
+    boolean deleteByClassifyID(Integer classifyId);
 
-    int insert(Classify record);
+    boolean insert(Classify record);
 
-    int insertSelective(Classify record);
+    Classify findByClassifyID(Integer classifyId);
 
-    Classify selectByPrimaryKey(Integer classifyId);
-
-    int updateByPrimaryKeySelective(Classify record);
-
-    int updateByPrimaryKey(Classify record);
+    boolean update(Classify record);
 }

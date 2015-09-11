@@ -1,17 +1,19 @@
 package com.dingdong.dao;
 
 import com.dingdong.pojo.Admin;
-
+import com.dingdong.pojo.User;
+/**
+ * 管理员
+ * @author yinyao
+ *
+ */
 public interface AdminMapper {
-    int deleteByPrimaryKey(Integer adminId);
+	
+//	   boolean deleteByAdminID(Integer userId);
 
-    int insert(Admin record);
-
-    int insertSelective(Admin record);
-
-    Admin selectByPrimaryKey(Integer adminId);
-
-    int updateByPrimaryKeySelective(Admin record);
-
-    int updateByPrimaryKey(Admin record);
+//	   boolean registe(User record);
+//	   	管理员暂不提供注册功能
+	   int login(String adminName , String password);
+	   
+	   boolean update(Admin record);
 }

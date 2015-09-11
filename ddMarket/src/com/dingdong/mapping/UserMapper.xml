@@ -19,10 +19,12 @@
     from t_user
     where user_id = #{userId,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+  
+  <delete id="delete" parameterType="java.lang.Integer" >
     delete from t_user
     where user_id = #{userId,jdbcType=INTEGER}
   </delete>
+  
   <insert id="insert" parameterType="com.dingdong.pojo.User" >
     insert into t_user (user_id, name, password, 
       credit, email, telephone, 

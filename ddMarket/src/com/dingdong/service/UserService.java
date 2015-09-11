@@ -6,41 +6,34 @@ import com.dingdong.pojo.User;
 public class UserService implements UserMapper{
 
 	@Override
-	public int deleteByPrimaryKey(Integer userId) {
+	public boolean deleteByUserID(Integer userId) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean registe(User record) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	/**
+     * 
+     * @param userName
+     * @param password
+     * @return int
+     */
+	@Override
+	public int login(String userName, String password) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public int insert(User record) {
+	public boolean update(User record) {
 		// TODO Auto-generated method stub
-		return 0;
+		return false;
 	}
 
-	@Override
-	public int insertSelective(User record) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public User selectByPrimaryKey(Integer userId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public int updateByPrimaryKeySelective(User record) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int updateByPrimaryKey(User record) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	
 	
 }
