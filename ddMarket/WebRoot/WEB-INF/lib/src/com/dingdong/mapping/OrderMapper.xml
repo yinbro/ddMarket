@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dingdong.dao.OrderMapper" >
+  <resultMap id="BaseResultMap" type="com.dingdong.pojo.Order" >
+    <id column="order_id" property="orderId" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="totalAmount" property="totalamount" jdbcType="DECIMAL" />
+    <result column="receiver_id" property="receiverId" jdbcType="INTEGER" />
+    <result column="orderStates" property="orderstates" jdbcType="INTEGER" />
+    <result column="expressInfo" property="expressinfo" jdbcType="VARCHAR" />
+    <result column="orderTime" property="ordertime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    order_id, user_id, totalAmount, receiver_id, orderStates, expressInfo, orderTime
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_order
+    where order_id = #{orderId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_order
+    where order_id = #{orderId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.dingdong.pojo.Order" >
+    insert into t_order (order_id, user_id, totalAmount, 
+      receiver_id, orderStates, expressInfo, 
+      orderTime)
+    values (#{orderId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{totalamount,jdbcType=DECIMAL}, 
+      #{receiverId,jdbcType=INTEGER}, #{orderstates,jdbcType=INTEGER}, #{expressinfo,jdbcType=VARCHAR}, 
+      #{ordertime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.dingdong.pojo.Order" >
+    insert into t_order
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="orderId != null" >
+        order_id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="totalamount != null" >
+        totalAmount,
+      </if>
+      <if test="receiverId != null" >
+        receiver_id,
+      </if>
+      <if test="orderstates != null" >
+        orderStates,
+      </if>
+      <if test="expressinfo != null" >
+        expressInfo,
+      </if>
+      <if test="ordertime != null" >
+        orderTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="orderId != null" >
+        #{orderId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="totalamount != null" >
+        #{totalamount,jdbcType=DECIMAL},
+      </if>
+      <if test="receiverId != null" >
+        #{receiverId,jdbcType=INTEGER},
+      </if>
+      <if test="orderstates != null" >
+        #{orderstates,jdbcType=INTEGER},
+      </if>
+      <if test="expressinfo != null" >
+        #{expressinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="ordertime != null" >
+        #{ordertime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dingdong.pojo.Order" >
+    update t_order
+    <set >
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="totalamount != null" >
+        totalAmount = #{totalamount,jdbcType=DECIMAL},
+      </if>
+      <if test="receiverId != null" >
+        receiver_id = #{receiverId,jdbcType=INTEGER},
+      </if>
+      <if test="orderstates != null" >
+        orderStates = #{orderstates,jdbcType=INTEGER},
+      </if>
+      <if test="expressinfo != null" >
+        expressInfo = #{expressinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="ordertime != null" >
+        orderTime = #{ordertime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where order_id = #{orderId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dingdong.pojo.Order" >
+    update t_order
+    set user_id = #{userId,jdbcType=INTEGER},
+      totalAmount = #{totalamount,jdbcType=DECIMAL},
+      receiver_id = #{receiverId,jdbcType=INTEGER},
+      orderStates = #{orderstates,jdbcType=INTEGER},
+      expressInfo = #{expressinfo,jdbcType=VARCHAR},
+      orderTime = #{ordertime,jdbcType=TIMESTAMP}
+    where order_id = #{orderId,jdbcType=INTEGER}
+  </update>
+</mapper>
