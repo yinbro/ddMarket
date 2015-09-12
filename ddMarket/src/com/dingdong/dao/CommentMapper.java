@@ -1,19 +1,19 @@
 package com.dingdong.dao;
 
+import java.awt.List;
+
 import com.dingdong.pojo.Comment;
 
 public interface CommentMapper {
-    int deleteByPrimaryKey(Integer commentId);
+    boolean deleteByComentID(Integer commentId);
 
-    int insert(Comment record);
+    boolean insert(Comment record);
 
-    int insertSelective(Comment record);
+    Comment findCommentByCommentID(Integer commentId);
 
-    Comment selectByPrimaryKey(Integer commentId);
+    List findCommentByItemID(Comment record);
 
-    int updateByPrimaryKeySelective(Comment record);
-
-    int updateByPrimaryKeyWithBLOBs(Comment record);
+    boolean update(Comment record);
 
     int updateByPrimaryKey(Comment record);
 }

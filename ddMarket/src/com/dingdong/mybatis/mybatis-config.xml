@@ -20,6 +20,7 @@
   
   <mappers>
     <mapper resource="com/dingdong/mapping/UserMapper.xml"/>
+    <mapper resource="com/dingdong/mapping/AdminMapper.xml"/>
     <mapper resource="com/dingdong/mapping/ClassifyMapper.xml"/>
     <mapper resource="com/dingdong/mapping/CommentMapper.xml"/>
     <mapper resource="com/dingdong/mapping/FavoriteMapper.xml"/>

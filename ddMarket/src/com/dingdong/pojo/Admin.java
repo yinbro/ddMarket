@@ -40,4 +40,11 @@ public class Admin {
     public void setStatus(Integer status) {
         this.status = status;
     }
+
+	@Override
+	public String toString() {
+		return "Admin [adminId=" + adminId + ", name=" + name + ", status=" + status + "]";
+	}
+    
+    
 }

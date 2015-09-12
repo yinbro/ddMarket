@@ -8,56 +8,18 @@
     <result column="status" property="status" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Base_Column_List" >
-    admin_id, password, name, status
+    admin_id, name, status
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  
+  <select id="login" resultMap="BaseResultMap" parameterType="java.util.Map" >
     select 
     <include refid="Base_Column_List" />
     from t_admin
-    where admin_id = #{adminId,jdbcType=INTEGER}
+    where name = #{name} and password = #{password}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from t_admin
-    where admin_id = #{adminId,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="com.dingdong.pojo.Admin" >
-    insert into t_admin (admin_id, password, name, 
-      status)
-    values (#{adminId,jdbcType=INTEGER}, #{password,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
-      #{status,jdbcType=INTEGER})
-  </insert>
-  <insert id="insertSelective" parameterType="com.dingdong.pojo.Admin" >
-    insert into t_admin
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="adminId != null" >
-        admin_id,
-      </if>
-      <if test="password != null" >
-        password,
-      </if>
-      <if test="name != null" >
-        name,
-      </if>
-      <if test="status != null" >
-        status,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="adminId != null" >
-        #{adminId,jdbcType=INTEGER},
-      </if>
-      <if test="password != null" >
-        #{password,jdbcType=VARCHAR},
-      </if>
-      <if test="name != null" >
-        #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="status != null" >
-        #{status,jdbcType=INTEGER},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.dingdong.pojo.Admin" >
+  
+  
+  <update id="update" parameterType="com.dingdong.pojo.Admin" >
     update t_admin
     <set >
       <if test="password != null" >
@@ -72,11 +34,6 @@
     </set>
     where admin_id = #{adminId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.dingdong.pojo.Admin" >
-    update t_admin
-    set password = #{password,jdbcType=VARCHAR},
-      name = #{name,jdbcType=VARCHAR},
-      status = #{status,jdbcType=INTEGER}
-    where admin_id = #{adminId,jdbcType=INTEGER}
-  </update>
+  
+  
 </mapper>

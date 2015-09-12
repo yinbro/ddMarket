@@ -1,19 +1,21 @@
 package com.dingdong.dao;
 
+import java.util.Map;
+
+import org.apache.ibatis.session.SqlSessionFactory;
+
 import com.dingdong.pojo.Admin;
-import com.dingdong.pojo.User;
 /**
- * 管理员
- * @author yinyao
+ * 
+ * @author yinbro
  *
  */
 public interface AdminMapper {
-	
 //	   boolean deleteByAdminID(Integer userId);
 
-//	   boolean registe(User record);
+//	   boolean register(User record);
 //	   	管理员暂不提供注册功能
-	   int login(String adminName , String password);
+	   Admin login(Map<String ,  String> map);
 	   
 	   boolean update(Admin record);
 }
