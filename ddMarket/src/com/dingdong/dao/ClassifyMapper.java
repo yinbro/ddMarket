@@ -4,11 +4,9 @@ import com.dingdong.pojo.Classify;
 
 public interface ClassifyMapper {
 	
-    boolean deleteByClassifyID(Integer classifyId);
-
-    boolean insert(Classify record);
-
-    Classify findByClassifyID(Integer classifyId);
-
-    boolean update(Classify record);
+	public boolean addClassfy(Classify classsify);
+	
+	
+	public boolean update(Classify classify);
+	
 }

@@ -1,17 +1,16 @@
 package com.dingdong.dao;
 
+import java.util.List;
+
 import com.dingdong.pojo.ItemPic;
 
 public interface ItemPicMapper {
-    int deleteByPrimaryKey(Integer itemPicId);
+	public boolean addItemPic(ItemPic itemPic);
+	
 
-    int insert(ItemPic record);
+	public boolean updateOrderDetail(ItemPic itemPic);
+	
+	//花式查询
+	public List findItemPicsByItemID(String id);
 
-    int insertSelective(ItemPic record);
-
-    ItemPic selectByPrimaryKey(Integer itemPicId);
-
-    int updateByPrimaryKeySelective(ItemPic record);
-
-    int updateByPrimaryKey(ItemPic record);
 }

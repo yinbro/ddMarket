@@ -1,17 +1,22 @@
 package com.dingdong.dao;
 
+import java.util.Date;
+import java.util.List;
+
 import com.dingdong.pojo.OrderDetail;
 
 public interface OrderDetailMapper {
-    int deleteByPrimaryKey(Integer orderDetailId);
+	public boolean createOrderDetail(OrderDetail OrderDetail);
+	
 
-    int insert(OrderDetail record);
+	public boolean updateOrderDetail(OrderDetail OrderDetail);
+	
+	
+	//花式查询
+	public OrderDetail findOrderDetailByID(String id);
 
-    int insertSelective(OrderDetail record);
+	public List findOrderDetailsByOrderID(String orderID);
+	
 
-    OrderDetail selectByPrimaryKey(Integer orderDetailId);
-
-    int updateByPrimaryKeySelective(OrderDetail record);
-
-    int updateByPrimaryKey(OrderDetail record);
+	public int findSalesByItemID(String itemID,Date startDate);
 }

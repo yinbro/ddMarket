@@ -4,11 +4,9 @@ import com.dingdong.pojo.User;
 
 public interface UserMapper {
 	
-    boolean deleteByUserID(Integer userId);
-
-    boolean registe(User record);
-
-    int login(String userName , String password);
-    
-    boolean update(User record);
+	public int login(String name,String psw);
+	
+	public boolean register(User u);
+	
+	public boolean update(User u);
 }
