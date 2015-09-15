@@ -1,6 +1,5 @@
 package com.dingdong.daoImp;
 
-import java.util.HashMap;
 import java.util.Map;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;

@@ -8,51 +8,14 @@
   <sql id="Base_Column_List" >
     classify_id, name
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select 
-    <include refid="Base_Column_List" />
-    from t_classify
-    where classify_id = #{classifyId,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from t_classify
-    where classify_id = #{classifyId,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="com.dingdong.pojo.Classify" >
+  <insert id="addClassify" parameterType="com.dingdong.pojo.Classify" >
     insert into t_classify (classify_id, name)
     values (#{classifyId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.dingdong.pojo.Classify" >
-    insert into t_classify
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="classifyId != null" >
-        classify_id,
-      </if>
-      <if test="name != null" >
-        name,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="classifyId != null" >
-        #{classifyId,jdbcType=INTEGER},
-      </if>
-      <if test="name != null" >
-        #{name,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.dingdong.pojo.Classify" >
-    update t_classify
-    <set >
-      <if test="name != null" >
-        name = #{name,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where classify_id = #{classifyId,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.dingdong.pojo.Classify" >
-    update t_classify
-    set name = #{name,jdbcType=VARCHAR}
-    where classify_id = #{classifyId,jdbcType=INTEGER}
-  </update>
+  <select id="findClassifyByID" parameterType="int" resultType="com.dingdong.pojo.Classify">
+  	 select 
+    <include refid="Base_Column_List" />
+    from t_classify
+    where classify_id = #{value}
+  </select>
 </mapper>

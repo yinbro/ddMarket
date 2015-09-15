@@ -10,22 +10,17 @@ import com.dingdong.pojo.Admin;
 public class AdminService {
 	
 	public Admin adminLogin(String adminName ,String adminPassword){
-		AdminMapperImp ami = new AdminMapperImp();
+		AdminMapper am = new AdminMapperImp();
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("name", adminName);
 		map.put("password", adminPassword);
-		return ami.login(map);
+		return am.login(map);
 	}
-
 	
-
-	//test
-	public static void main(String[] args) {
-
-		AdminService as = new AdminService();
-		Admin admin = as.adminLogin("root", "root");
-		System.out.println(admin);
+	public boolean adminUpdate(Admin admin){
+		boolean isUpdate = false;
+		AdminMapper am = new AdminMapperImp();
+		isUpdate = am.update(admin);
+		return isUpdate;
 	}
-
-	
 }
